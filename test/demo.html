@@ -10,7 +10,7 @@
     <script>
         var dpr = window.devicePixelRatio >= 2 ? 0.5: 1.0;
         var ratio = window.devicePixelRatio >= 2 ? 2: 1;
-        document.querySelector("meta[name=viewport]").setAttribute("content", "width=device-width, initial-scale=" + dpr + "user-scalable=no");
+        document.querySelector("meta[name=viewport]").setAttribute("content", "width=device-width, initial-scale=" + dpr + "maximum-scale="+ dpr + "minimum-scale=" + "dpr" + "user-scalable=no");
         document.documentElement.setAttribute("data-ptr", ratio);
     </script>
 </head>
@@ -35,6 +35,7 @@
             <span>验证密码</span>
         </div>
     </div>
+    <script src="./md5.min.js"></script>    
     <script src="../lib/lock.js"></script>
     <script src="./demo.js"></script>
 </body>

@@ -23,13 +23,8 @@
                 successColor: "#5bc0de",
                 bdColor: "rgba(64,64,64,0.9)"
             };
-            config = Object.assign(defaultConfig, config)
-            this.config = config;
-            this.matrixNum = config.matrixNum; //设置矩阵为 matrixNum *  matrixNum
-            this.bdColor = config.bdColor;
-            this.successColor = config.successColor;
-            this.errorColor = config.errorColor;
-            this.pwdObj = config.pwdObj;            
+            config = Object.assign(this, defaultConfig, config)
+            this.config = config;          
             this.inputArr = document.getElementsByName(config.inputName);
             this.selectedColor = config.selectedColor;
             this.canvasId = config.canvasId;
@@ -62,8 +57,8 @@
             let r = this.r = this.ctx.canvas.width / (2 + 4 * this.matrixNum);
             let arr = [];
             let vArr = [];
-            for (let i = 0; i < 3; i++) {
-                for (let j = 0; j < 3; j++) {
+            for (let j = 0; j < 3; j++) {
+                for (let i = 0; i < 3; i++) {
                     arr.push({
                         x: (i * 4 + 3) * r,
                         y: (j * 4 + 3) * r + this.ctx.canvas.height * 0.08
@@ -135,7 +130,7 @@
             this.ctx.closePath();  
         }
         /**
-         * 开启事件监听
+         * add eventlisteners
          */
         bindEvent() {
             let self = this;
@@ -164,7 +159,7 @@
             this.canvas.addEventListener("touchend", (e) => {
                 if (self.touchFlag) {
                     self.touchFlag = false;
-                    self.pwdObj.pwdArr = self.selectedStack;
+                    self.pwdObj.pwdArr = self.transcoding();
                     this.drawCurrentStatus();
                     window.setTimeout(function(){
                         self.init();
@@ -227,8 +222,21 @@
         /**
          * set success status
          */
-        success () {
+        success() {
             this.solidColor = this.successColor;
+        }
+        transcoding() {
+            var arr = this.selectedStack;
+            var oarr = this.HCircleArr;
+            let rarr = [];
+            for(let i = 0; i < arr.length; i++) {
+                for(let j = 0; j < oarr.length; j++) {
+                    if(arr[i].x === oarr[j].x && arr[i].y === oarr[j].y) {
+                        rarr.push(j+1);
+                    }
+                }
+            }
+            return rarr;
         }
     }
 })();
