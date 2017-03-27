@@ -9,30 +9,33 @@ gulp.task("es6", function() {
             presets: ['es2015']
         }))
         .pipe(gulp.dest('./lib'))
+        .pipe(reload({stream: true}))
 })
-gulp.task("js", function() {
-    return gulp.src(["./lib/lock.js", "./tests/demo.js"])
-        .pipe(reload({ stream: true }));
+gulp.task("build", function() {
+    return gulp.src("./lib/lock.js")
+        .pipe($.uglify())
+        .pipe(gulp.dest("./lib"));
 })
-gulp.task("css", function() {
-    return gulp.src("./tests/style/css/{demo,mixin}.css")
-        .pipe(reload({ stream: true }));
+gulp.task("build-css", function() {
+    return gulp.src("./test/style/css/{demo,mixin}.css")
+        .pipe($.autoprefixer())
+        .pipe($.uglify())
+        .pipe(gulp.dest('./test/style/css'))
 })
 gulp.task('less', function() {
-    return gulp.src('./tests/style/less/{demo,mixin}.less')
+    return gulp.src('./test/style/less/{demo,mixin}.less')
         .pipe($.less())
         .pipe($.autoprefixer())
-        .pipe(gulp.dest('./tests/style/css'));
+        .pipe(gulp.dest('./test/style/css')).
+        .pipe(reload({stream: true}))
 });
-gulp.task("server", ["es6", "js", "less", "css"], function() {
+gulp.task("server", ["es6", "less"], function() {
     Browsersync.init({
         server: {
             baseDir: "./"
         }
     })
-    gulp.watch("./tests/demo.html", reload);
-    gulp.watch("./tests/style/less/{demo,mixin}.less", ['less']);
-    gulp.watch("./tests/style/less/{demo,mixin}.css").on("change", reload);
+    gulp.watch("./test/demo.html", reload);
+    gulp.watch("./test/style/less/{demo,mixin}.less", ['less']);
     gulp.watch("./src/lock.js", ['es6']);
-    gulp.watch("./lib/lock.js").on("change", reload);
 })
