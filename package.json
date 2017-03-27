@@ -1,7 +1,7 @@
 {
   "name": "zlock",
   "version": "0.1.0",
-  "description": "",
+  "description": "移动web前端手势密码",
   "main": "index.js",
   "dependencies": {
     "gulp-uglify": "^2.1.2"
@@ -16,6 +16,10 @@
   },
   "scripts": {
     "test": "gulp build"
+  },
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/mrzxc/Zlock"
   },
   "author": "zxc",
   "license": "MIT"

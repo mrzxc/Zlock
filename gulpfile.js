@@ -26,7 +26,7 @@ gulp.task('less', function() {
     return gulp.src('./test/style/less/{demo,mixin}.less')
         .pipe($.less())
         .pipe($.autoprefixer())
-        .pipe(gulp.dest('./test/style/css')).
+        .pipe(gulp.dest('./test/style/css'))
         .pipe(reload({stream: true}))
 });
 gulp.task("server", ["es6", "less"], function() {
