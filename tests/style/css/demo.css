@@ -1,0 +1,59 @@
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+}
+html {
+  height: 100%;
+}
+body {
+  font-size: 0;
+  height: 100%;
+  margin: 0px;
+  background-image: url("../../../img/bd.jpg");
+  background-size: cover;
+  color: #ffffff;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.filter {
+  background: inherit;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -5;
+  -webkit-filter: blur(15px);
+  -moz-filter: blur(15px);
+  filter: blur(15px);
+}
+.hintContent {
+  width: 100%;
+  position: absolute;
+  top: 5%;
+  font-size: 20px;
+  text-align: center;
+  height: 80px;
+}
+.canvas {
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+.form {
+  position: absolute;
+  top: 75%;
+  left: 20%;
+  font-size: 20px;
+}
+[data-ptr="2"] .hintContent {
+  font-size: 40px;
+}
+[data-ptr="2"] .form > div {
+  height: 100px;
+  font-size: 40px;
+}
+[data-ptr="2"] input {
+  height: 40px;
+  width: 40px;
+}

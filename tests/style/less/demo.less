@@ -1,0 +1,65 @@
+@import "./mixin.less";
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+}
+html {
+    height: 100%;
+}
+body {
+    font-size: 0;    
+    height: 100%;
+    margin: 0px;
+    background-image: url("../../img/bd.jpg");
+    background-size: cover;
+    color: @font-color;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+.filter {
+    background: inherit;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -5;
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    filter: blur(15px); 
+}
+.hintContent {
+    width: 100%;
+    position: absolute;
+    top: 5%;
+    font-size: 20px;
+    text-align: center;
+}
+.canvas {
+    height: 100%;
+    width: 100%;
+    z-index: 10;  
+}
+.form {
+    position: absolute;
+    top: 75%;
+    left: 20%;
+    font-size: @font-size;
+}
+input {
+    height: @input-size;
+    width: @input-size;
+}
+[data-ptr="2"] {
+    .hintContent {
+        font-size: 2 * @font-size;
+    }
+    .form > div{
+        height: 100px;
+        font-size: 2 * @font-size;
+    }
+    input {
+        height: 2 * @input-size;
+        width: 2 * @input-size;
+    }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans2" data-ptr="1">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./style/css/demo.css">
+    <title>手势解锁</title>
+    <script>
+        var dpr = window.devicePixelRatio >= 2 ? 0.5: 1.0;
+        var ratio = window.devicePixelRatio >= 2 ? 2: 1;
+        document.querySelector("meta[name=viewport]").setAttribute("content", "width=device-width, initial-scale=" + dpr + "user-scalable=no");
+        document.documentElement.setAttribute("data-ptr", ratio);
+    </script>
+</head>
+
+<body>
+    <div class="filter">
+
+    </div>
+    <div class="hintContent">
+        <span id="hint">请设置密码</span>
+    </div>
+    <div class="canvas">
+        <canvas id="lock"></canvas>
+    </div>
+    <div class="form">
+        <div>
+            <input type="radio" name="status" value="set" checked>
+            <span>设置密码</span>
+        </div>
+        <div>
+            <input type="radio" name="status" value="check">
+            <span>验证密码</span>
+        </div>
+    </div>
+    <script src="../lib/lock.js"></script>
+    <script src="./demo.js"></script>
+</body>
+
+</html>
