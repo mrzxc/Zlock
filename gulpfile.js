@@ -32,7 +32,7 @@ gulp.task('less', function() {
 gulp.task("server", ["es6", "less"], function() {
     Browsersync.init({
         server: {
-            baseDir: "./"
+           baseDir: "./"
         }
     })
     gulp.watch("./test/demo.html", reload);

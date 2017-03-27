@@ -4,7 +4,7 @@
   "description": "移动web前端手势密码",
   "main": "index.js",
   "dependencies": {
-    "gulp-uglify": "^2.1.2"
+     "gulp-uglify": "^2.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.6.1",
