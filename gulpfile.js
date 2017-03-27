@@ -12,18 +12,18 @@ gulp.task("es6", function() {
         .pipe(reload({stream: true}))
 })
 gulp.task("build", function() {
-    return gulp.src("./lib/lock.js")
+    return gulp.src("./lib/*.js")
         .pipe($.uglify())
         .pipe(gulp.dest("./lib"));
 })
 gulp.task("build-css", function() {
-    return gulp.src("./test/style/css/{demo,mixin}.css")
-        .pipe($.autoprefixer())
+    return gulp.src("./test/style/css/*.css")
         .pipe($.uglify())
+        .pipe($.autoprefixer())
         .pipe(gulp.dest('./test/style/css'))
 })
 gulp.task('less', function() {
-    return gulp.src('./test/style/less/{demo,mixin}.less')
+    return gulp.src('./test/style/less/*.less')
         .pipe($.less())
         .pipe($.autoprefixer())
         .pipe(gulp.dest('./test/style/css'))
