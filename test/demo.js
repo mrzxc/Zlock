@@ -9,7 +9,6 @@
     };
     var conf = {
         matrixNum: 3,
-        hollowColor: "#666666",
         selectedColor: "rgba(255,255,255,0)",
         solidColor: "#ccccdd",
         errorColor: "#ee6666",

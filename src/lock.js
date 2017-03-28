@@ -17,11 +17,11 @@
             let defaultConfig = {
                 matrixNum: 3,
                 hollowColor: "#999999",
-                selectedColor: "#666666",
-                solidColor: "#6699cc",
-                errorColor: "#ff0000",
+                selectedColor: "rgba(255,255,255,0)",
+                solidColor: "#ccccdd",
+                errorColor: "#ee6666",
                 successColor: "#5bc0de",
-                bdColor: "rgba(64,64,64,0.9)"
+                bdColor: "rgba(16,16,16,0.8)"
             };
             config = Object.assign(defaultConfig, config)
             this.config = config;
@@ -58,8 +58,8 @@
             let r = this.r = ifColumn ? this.ctx.canvas.width / (2 + 4 * this.matrixNum) : this.ctx.canvas.height / (2 + 4 * this.matrixNum);
             let arr = [];
             let vArr = [];
-            for (let j = 0; j < 3; j++) {
-                for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < this.matrixNum; j++) {
+                for (let i = 0; i < this.matrixNum; i++) {
                     arr.push({
                         x: (i * 4 + 3) * r,
                         y: (j * 4 + 3) * r + this.ctx.canvas.height * 0.15
