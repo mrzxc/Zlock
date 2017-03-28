@@ -1,9 +1,15 @@
 Zlock.js H5手势密码
-===
-Zlock.js 手势密码, 移动端轻量级插件
-`移动端`下展示效果
-![移动端图片显示](https://github.com/mrzxc/Zlock/tree/master/test/img/demo.gif)
-#### [DEMO查看](https://mrzxc.github.io/Zlock/test/index.html)
+===  
+[![Build Status](https://travis-ci.org/mrzxc/Zlock.svg?branch=master)](https://travis-ci.org/mrzxc/Zlock) [![npm](https://img.shields.io/npm/v/npm.svg)]()    
+
+* Zlock.js 手势密码, 移动端轻量级插件  
+* 使用canvas绘制  
+* 不参与Model层逻辑  
+
+# `移动端`下展示效果  
+![移动端图片显示](./test/img/demo.gif)
+#### [DEMO查看](https://mrzxc.github.io/Zlock/test/index.html)  
+![扫扫更方便 ^_^](./test/img/2Dbarcode.png)  
 功能列表
 ----
 * 支持n维矩阵
@@ -11,10 +17,16 @@ Zlock.js 手势密码, 移动端轻量级插件
 * 对外提供良好的接口
 * 通过gulp构建
 * 代码分工明确,易扩展维护
+  
 
-
-使用方法  
-------  
+# 使用方法  
+-----
+### 建立\<canvas\>元素 并设置id  
+``` html
+<body>
+    <canvas id="lock"><canvas>
+</body>
+```
 ### 引入js, 初始化密码保存对象(pwdArr), 并初始化Zlock对象  
 ```javascript  
 var zlock = new Zlock({

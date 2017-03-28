@@ -18,7 +18,6 @@ gulp.task("build", function() {
 })
 gulp.task("build-css", function() {
     return gulp.src("./test/style/css/*.css")
-        .pipe($.uglify())
         .pipe($.autoprefixer())
         .pipe(gulp.dest('./test/style/css'))
 })
