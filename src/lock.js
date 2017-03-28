@@ -23,10 +23,10 @@
                 successColor: "#5bc0de",
                 bdColor: "rgba(64,64,64,0.9)"
             };
-            config = Object.assign(this, defaultConfig, config)
-            this.config = config;          
+            config = Object.assign(defaultConfig, config)
+            this.config = config;
+            Object.assign(this, config);
             this.inputArr = document.getElementsByName(config.inputName);
-            this.selectedColor = config.selectedColor;
             this.canvasId = config.canvasId;
             this.canvas = window.document.getElementById(this.canvasId);                         
             this.ctx = this.canvas.getContext('2d');
@@ -54,14 +54,15 @@
          */
         HCircleInit() {
             this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-            let r = this.r = this.ctx.canvas.width / (2 + 4 * this.matrixNum);
+            let ifColumn = this.ctx.canvas.width < this.ctx.canvas.height;
+            let r = this.r = ifColumn ? this.ctx.canvas.width / (2 + 4 * this.matrixNum) : this.ctx.canvas.height / (2 + 4 * this.matrixNum);
             let arr = [];
             let vArr = [];
             for (let j = 0; j < 3; j++) {
                 for (let i = 0; i < 3; i++) {
                     arr.push({
                         x: (i * 4 + 3) * r,
-                        y: (j * 4 + 3) * r + this.ctx.canvas.height * 0.08
+                        y: (j * 4 + 3) * r + this.ctx.canvas.height * 0.15
                     });
                 }
             }
@@ -225,6 +226,9 @@
         success() {
             this.solidColor = this.successColor;
         }
+        /**
+         * coords transcode to number 
+         */
         transcoding() {
             var arr = this.selectedStack;
             var oarr = this.HCircleArr;

@@ -32,7 +32,7 @@
                         prompt.textContent = "两次输入不一致,请重新输入";
                         zlock.error();
                         window.setTimeout(function () {
-                            prompt.textContent = "请输入手势密码";
+                            prompt.textContent = "请输入密码";
                         }, 500);
                     }
                     this.setTime = 0;
@@ -41,12 +41,12 @@
                         prompt.textContent = "密码太短,至少要5个点";
                         zlock.error();
                         window.setTimeout(function () {
-                            prompt.textContent = "请输入手势密码";
+                            prompt.textContent = "请输入密码";
                         }, 1000);
                     } else {
                         this.lastpwd = JSON.stringify(arr);
                         this.setTime++;
-                        prompt.textContent = "请再次输入手势密码";
+                        prompt.textContent = "请再次输入密码";
                     }
                 }
             } else {
@@ -54,9 +54,9 @@
                     prompt.textContent = "验证成功";
                     zlock.success();
                 } else {
-                    prompt.textContent = "手势密码错误";
+                    prompt.textContent = "密码错误";
                     setTimeout(function () {
-                        prompt.textContent = "请输入手势密码";
+                        prompt.textContent = "请输入密码";
                     }, 1000);
                     zlock.error();
                 }
@@ -67,7 +67,7 @@
     $form.addEventListener("click", function (event) {
         if (event.target.value == "check") {
             pwdObj.setFlag = false;
-            prompt.textContent = "请输入手势密码";
+            prompt.textContent = "请输入密码";
         } else if (event.target.value == "set") {
             pwdObj.setFlag = true;
             prompt.textContent = "请设置密码";
